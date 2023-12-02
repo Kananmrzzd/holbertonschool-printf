@@ -20,8 +20,6 @@ int _printf(const char *format, ...)
 
 	for (ptr = format; *ptr != '\0'; ptr++)
 	{
-		if (*ptr == '\n')
-			_putchar('\n');
 
 		if (*ptr == '%')
 		{
