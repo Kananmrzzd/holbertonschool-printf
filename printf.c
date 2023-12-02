@@ -20,6 +20,9 @@ int _printf(const char *format, ...)
 
 	for (ptr = format; *ptr != '\0'; ptr++)
 	{
+		if (*ptr == '\n')
+			_putchar('\n');
+
 		if (*ptr == '%')
 		{
 			ptr++;
@@ -49,10 +52,7 @@ int _printf(const char *format, ...)
 					cnt++;
 					break;
 				default:
-					_putchar('%');
-					_putchar(*ptr);
-					cnt += 2;
-					break;
+					return (0);
 			}
 		}
 		else
