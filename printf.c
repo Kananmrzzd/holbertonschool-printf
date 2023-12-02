@@ -8,11 +8,13 @@
  */
 int _printf(const char *format, ...)
 {
+	int cnt;
+
 	va_list args;
 	const char *ptr;
 
 	if (format == NULL)
-		return;
+		return (0);
 
 	va_start(args, format);
 
@@ -29,6 +31,7 @@ int _printf(const char *format, ...)
 			{
 				case 'c':
 					_putchar(va_arg(args, int));
+					cnt++;
 					break;
 				case 's':
 					{
@@ -37,25 +40,30 @@ int _printf(const char *format, ...)
 						{
 							_putchar(*str);
 							str++;
+							cnt++;
 						}
 					}
 					break;
 				case '%':
 					_putchar('%');
+					cnt++;
 					break;
 				default:
 					_putchar('%');
 					_putchar(*ptr);
+					cnt += 2;
 					break;
 			}
 		}
 		else
 		{
 			_putchar(*ptr);
+			cnt++;
 		}
 	}
 
 	va_end(args);
 
-	return (0);
+	return (cnt);
 }
+
