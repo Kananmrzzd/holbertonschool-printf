@@ -4,11 +4,12 @@
 
 /**
  * _printf - print
- * @format: Format sspecifiers
+ * @format: Format specifiers
+ * Return: Number of characters printed (excluding null byte)
  */
 int _printf(const char *format, ...)
 {
-	int cnt;
+	int cnt = 0;
 
 	va_list args;
 	const char *ptr;
@@ -20,7 +21,6 @@ int _printf(const char *format, ...)
 
 	for (ptr = format; *ptr != '\0'; ptr++)
 	{
-
 		if (*ptr == '%')
 		{
 			ptr++;
@@ -40,11 +40,19 @@ int _printf(const char *format, ...)
 				case 's':
 					{
 						char *str = va_arg(args, char *);
-						while (*str != '\0')
+						if (str == NULL)
 						{
-							_putchar(*str);
-							str++;
-							cnt++;
+							_putstr("(null)");
+							cnt += 6;
+						}
+						else
+						{
+							while (*str != '\0')
+							{
+								_putchar(*str);
+								str++;
+								cnt++;
+							}
 						}
 					}
 					break;
@@ -68,6 +76,6 @@ int _printf(const char *format, ...)
 
 	va_end(args);
 
-	return (cnt);
+	return cnt;
 }
 
