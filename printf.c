@@ -61,7 +61,6 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			_putchar(%);
 			_putchar(*ptr);
 			cnt++;
 		}
