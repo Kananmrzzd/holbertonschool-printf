@@ -50,7 +50,9 @@ int _printf(const char *format, ...)
 					cnt++;
 					break;
 				default:
-					return (0);
+					_putchar(*ptr);
+					cnt += 2;
+					break;
 			}
 		}
 		else
