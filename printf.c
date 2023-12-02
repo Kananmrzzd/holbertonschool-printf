@@ -107,7 +107,6 @@ int _printf(const char *format, ...)
 					cnt++;
 					break;
 				default:
-					_putchar('%');
 					_putchar(*ptr);
 					cnt += 2;
 					break;
