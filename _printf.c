@@ -1,6 +1,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include "main.h"
+#include <limits.h>
 
 int _print_char(va_list args)
 {
@@ -29,7 +30,14 @@ int _print_int(va_list args)
 	int cnt = 0;
 	int temp;
 
-	if (n < 0)
+	if (n == INT_MIN)
+	{
+		_putchar('-');
+		_putchar('2');
+		n = 147483648;
+		cnt += 2;
+	}
+	else if (n < 0)
 	{
 		_putchar('-');
 		n *= -1;
@@ -83,8 +91,6 @@ int _printf(const char *format, ...)
 			format++;
 			if (*format == '\0')
 			{
-				_putchar('%');
-				cnt++;
 				break;
 			}
 			cnt += handle_format(&format, args);
