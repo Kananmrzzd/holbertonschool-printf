@@ -28,8 +28,7 @@ int _print_string(va_list args)
 
 	if (str == NULL)
 	{
-		_putstr("(null)");
-		cnt += 6;
+		str = "(null)";
 	}
 	else
 	{
@@ -106,7 +105,10 @@ int _printf(const char *format, ...)
 					_putchar('%');
 					cnt++;
 					break;
+				case '\0':
+					break;
 				default:
+					_putchar('%');
 					_putchar(*ptr);
 					cnt += 2;
 					break;
