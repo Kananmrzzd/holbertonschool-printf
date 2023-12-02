@@ -3,8 +3,8 @@
 #include "main.h"
 
 /**
- * _printf - Custom printf function with limited functionality
- * @format: Format string containing format specifiers
+ * _printf - print
+ * @format: Format sspecifiers
  */
 int _printf(const char *format, ...)
 {
@@ -24,6 +24,9 @@ int _printf(const char *format, ...)
 		if (*ptr == '%')
 		{
 			ptr++;
+
+			if (*ptr == '\0')
+				return (0);
 
 			if (*ptr == '\0')
 				break;
@@ -50,6 +53,7 @@ int _printf(const char *format, ...)
 					cnt++;
 					break;
 				default:
+					_putchar('%');
 					_putchar(*ptr);
 					cnt += 2;
 					break;
@@ -57,6 +61,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
+			_putchar(%);
 			_putchar(*ptr);
 			cnt++;
 		}
