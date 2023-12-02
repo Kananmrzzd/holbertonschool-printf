@@ -65,7 +65,7 @@ int _print_int(va_list args)
 /**
  * _printf - Custom printf function with limited functionality
  * @format: Format specifiers
- * Return: Number of characters printed (excluding null byte)
+ * Return: count
  */
 int _printf(const char *format, ...)
 {
