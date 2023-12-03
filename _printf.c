@@ -58,19 +58,19 @@ int handle_format(const char **format_ptr, va_list args)
 	switch (**format_ptr)
 	{
 		case 'c':
-			return _print_char(args);
+			return (_print_char(args));
 		case 's':
-			return _print_string(args);
+			return (_print_string(args));
 		case 'd':
 		case 'i':
-			return _print_int(args);
+			return (_print_int(args));
 		case '%':
 			_putchar('%');
-			return 1;
+			return (1);
 		default:
 			_putchar('%');
 			_putchar(**format_ptr);
-			return 2;
+			return (2);
 	}
 }
 
@@ -80,7 +80,7 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	if (format == NULL)
-		return -1;
+		return (-1);
 
 	va_start(args, format);
 
@@ -104,5 +104,5 @@ int _printf(const char *format, ...)
 
 	va_end(args);
 
-	return cnt;
+	return (cnt);
 }
