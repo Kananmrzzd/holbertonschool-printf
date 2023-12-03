@@ -1,10 +1,13 @@
 #include "main.h"
 #include <unistd.h>
 
-/*_putstr - write to standart outpur
-* @str: const char
-* Return: count
-*/
+/**
+ * _putstr - Print a string to standard output
+ * @str: The string to be printed
+ *
+ * Return: The number of characters printed (excluding null byte)
+ *         or -1 if an error occurs
+ */
 int _putstr(const char *str)
 {
 	int count = 0;
